@@ -1,7 +1,7 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse , redirect
 from .forms import LoginForm
 from django.contrib.auth import authenticate , login
-
+from django.contrib.auth.decorators import login_required 
 
 # Create your views here.
 
@@ -29,6 +29,9 @@ def userLogin(request) :
         form = LoginForm() 
     return render(request,'mediapp/login.html',{'form':form})
 
-
+@login_required
 def index(request) :
+    if  not request.user.is_authenticated :
+        return redirect('mediapp/login.html')
+
     return render(request, 'mediapp/index.html')
