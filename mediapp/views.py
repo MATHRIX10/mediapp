@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse , redirect
-from .forms import LoginForm
+from .forms import LoginForm, UserRegistrationForm
 from django.contrib.auth import authenticate , login
 from django.contrib.auth.decorators import login_required 
 
@@ -35,3 +35,16 @@ def index(request) :
         return redirect('mediapp/login.html')
 
     return render(request, 'mediapp/index.html')
+
+def register(request) :
+    if request.method == 'POST' :
+        # we have to get the data from the form 
+        user_form = UserRegistrationForm(request.POST)
+        if user_form.is_valid() : 
+            new_user = user_form.save(commit = False)
+            new_user.set_password(user_form.cleaned_data['password2'])
+            new_user.save() 
+            return render(request, 'mediapp/register_done.html')
+    else :
+        user_form = UserRegistrationForm() 
+    return render(request,'mediapp/register.html',{'user_form' : user_form})

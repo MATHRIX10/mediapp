@@ -1,0 +1,13 @@
+{% extends 'mediapp/base.html' %}
+
+{% block body %}
+
+<form method="POST">
+
+    {% csrf_token %}
+    {{ user_form.as_div }}
+    <button type='submit'> register</button>
+
+</form>
+
+{% endblock %}
