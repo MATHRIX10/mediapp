@@ -1,0 +1,15 @@
+{% extends 'mediapp/base.html' %}
+
+{% block body %}
+
+<h2>edit profile form </h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{user_form.as_p}}
+         {{profile_form.as_p}}
+        <input type="submit">
+    </form>
+
+{% endblock %}
+
+
