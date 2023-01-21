@@ -18,8 +18,10 @@ urlpatterns = [
     path('reset/ended/',auth_views.PasswordResetCompleteView.as_view(template_name = 'mediapp/reset_complete.html'),name = 'password_reset_complete'),
 
     path('register/',views.register,name = 'register'),
-    path('edit/',views.edit,name='edit')
-]
+    path('edit/',views.edit,name='edit'),
+    path('posts/',include('posts.urls'))
+
+]   
 
 
 

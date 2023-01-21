@@ -1,0 +1,17 @@
+{% extends 'mediapp/base.html' %}
+
+{% block body %}
+    <form method="POST" enctype="multipart/form-data">
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type = 'submit '>save the post </button>
+    
+    
+    
+    </form>
+
+
+{% endblock %}
