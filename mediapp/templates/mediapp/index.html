@@ -1,6 +1,11 @@
 {% extends 'mediapp/base.html' %}
 
 {% block body %}
+<h1>Welcome the your post page </h1>
+{% for post in user_posts %}
+    <h1>{{post.title}}</h1>
+    <h2>{{post.user.username}}</h2>
+    <img src="{{post.image.url}}" alt="">
 
-<h1>home page of the app </h1>
+{% endfor %}
 {% endblock %}

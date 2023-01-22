@@ -3,6 +3,7 @@ from .forms import LoginForm, UserRegistrationForm,UserEditForm,ProfileEditForm
 from django.contrib.auth import authenticate , login
 from django.contrib.auth.decorators import login_required 
 from .models import Profil
+from posts.models import Post 
 
 # Create your views here.
 
@@ -35,7 +36,13 @@ def index(request) :
     if  not request.user.is_authenticated :
         return redirect('mediapp/login.html')
 
-    return render(request, 'mediapp/index.html')
+    current_user = request.user
+    user_posts = Post.objects.filter(user=current_user)
+
+
+
+   
+    return render(request, 'mediapp/index.html',{'user_posts':user_posts})
 
 def register(request) :
     if request.method == 'POST' :
