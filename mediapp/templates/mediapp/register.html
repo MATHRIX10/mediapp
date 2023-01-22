@@ -1,13 +1,55 @@
-{% extends 'mediapp/base.html' %}
+{% extends 'mediapp/base.html'%}
 
 {% block body %}
 
-<form method="POST">
+<h1 class="text-2xl m-10"> 👤 register user </h1>
 
+<div class="container py-5">
+
+<form method="POST" class="bg-white shadow-md  m-10  rounded px-8 pt-6 pb-8 mb-4">
+    <div class='mb-2'>
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="">email</label>
+        <div class="text-gray-700 shadow appearance-none border rounded py-2 px-3 mr-10 "> {{user_form.email}}</div>
+    </div>
+
+     <div class='mb-2'>
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="">username</label>
+        <div class="text-gray-700 shadow appearance-none border rounded py-2 px-3 mr-10 "> {{user_form.username}}</div>
+    </div>
+
+      <div class='mb-2'>
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="">password</label>
+        <div class="text-gray-700 shadow appearance-none border rounded py-2 px-3 mr-10 "> {{user_form.password1}}</div>
+    </div>
+
+      <div class='mb-2'>
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="">confirm password</label>
+        <div class="text-gray-700 shadow appearance-none border rounded py-2 px-3 mr-10 "> {{user_form.password2}}</div>
+    </div>
     {% csrf_token %}
-    {{ user_form.as_div }}
-    <button type='submit'> register</button>
+   
+
+
+    <button class="hover:opacity-100 opacity-75 rounded-md text-white bg-green-500 px-5 py-2 "   type = "submit">Register</button>
 
 </form>
+
+</div>
+
+<p class="px-10 py-10 ">forgot password ? click here to reset <a class="text-indigo-500 " href="{% url 'reset' %}">reset password</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 {% endblock %}
