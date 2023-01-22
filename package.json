@@ -1,0 +1,26 @@
+{
+  "name": "media",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build" : "tailwindcss build -i mediapp/static/users/tw.css -o mediapp/static/users/styles.css "
+  
+  
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MATHRIX10/mediapp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MATHRIX10/mediapp/issues"
+  },
+  "homepage": "https://github.com/MATHRIX10/mediapp#readme",
+  "dependencies": {
+    "tailwindcss": "^2.2.16"
+  }
+}
