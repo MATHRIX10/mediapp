@@ -38,11 +38,12 @@ def index(request) :
 
     current_user = request.user
     user_posts = Post.objects.filter(user=current_user)
+    profile = Profil.objects.filter(user=current_user).first() 
 
 
 
    
-    return render(request, 'mediapp/index.html',{'user_posts':user_posts})
+    return render(request, 'mediapp/index.html',{'user_posts':user_posts,'profile':profile})
 
 def register(request) :
     if request.method == 'POST' :

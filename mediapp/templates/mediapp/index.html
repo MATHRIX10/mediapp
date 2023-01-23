@@ -1,11 +1,52 @@
 {% extends 'mediapp/base.html' %}
 
 {% block body %}
-<h1>Welcome the your post page </h1>
+
+
+
+<div class="flex justify-center mt-5 p-10">
+<h2 class="text-xl font-normal mb-2 text-gray-500 ">My Posts </h2>
+</div>
+<div class="mt-10 mx-60  p-10  grid grid-cols-1">
 {% for post in user_posts %}
-    <h1>{{post.title}}</h1>
-    <h2>{{post.user.username}}</h2>
-    <img src="{{post.image.url}}" alt="">
+    <a href=""class="bg-white shadow-lg mt-6"  >
+        
+        <div class="  rounded overflow-hidden w-[470px] h-[470px]  ">
+            
+            <div class="flex container align-center mx-5 my-5">
+            <img class="w-10 w-10 rounded-full bg-gray" src="{{profile.photo.url}}" alt="">
+            <div class="mx-2 my-2 font-bold "><span class="text-green-500 capitalize">{{post.user.username}}</span></div>
+        
+        </div>
+            <img src="{{post.image.url}}" alt="">
+        </div>
+       
+
+        <div class="py-4 px-6">
+            <div class="font-bold text-xl mb-2 text-gray-600">{{post.title}}</div>
+            <p class="text-gray-700 text-">{{post.caption}}</p>
+        </div>
+
+         <div class="icons text-green-500 flex justify-center  mt-4 mb-4 ">
+         <i class="fa-solid fa-comment-dots ml-2 opacity-75 hover:opacity-100"></i>
+         <i class="fa-solid fa-heart ml-2 opacity-75 hover:opacity-100"></i>
+         <i class="fa-sharp fa-solid fa-share-from-square  ml-2 opacity-75 hover:opacity-100"></i>
+
+        
+        
+        </div>
+    </a>
+   
 
 {% endfor %}
+ </div>
+
+  
+
+
 {% endblock %}
+
+
+  <h1>{{post.title}}</h1>
+    <h2>{{post.user.username}}</h2>
+    <img src="{{post.image.url}}" alt="">
