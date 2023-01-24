@@ -32,16 +32,30 @@
             <p class="text-gray-700 text-">{{post.caption}}</p>
         </div>
 
-         <div class="icons text-green-500 flex justify-center  mt-4 mb-4 ">
+         <div class="icons  flex justify-center  mt-4 mb-4 ">
+            <a href="" id = "{{post.id}}" class = "btn-like active">
+       
+         {% if logged_user in post.liked_by.all %}
+       <i class="fa-solid fa-heart active ml-2 opacity-75 hover:opacity-100 text-red-700"></i>
+  
+         
+         {% else %}
 
-        <a href="" id = "{{post.id}}" class = "btn-like"><i class="fa-solid fa-heart ml-2 opacity-75 hover:opacity-100"></i></a>
-         <i class="fa-solid fa-comment-dots ml-2 opacity-75 hover:opacity-100"></i>
+            <i class="fa-solid fa-heart active ml-2 opacity-75 hover:opacity-100 text-green-700"></i>
+          
+         
+         {% endif %}
+         </a>
+
+         <i class="fa-solid fa-comment-dots ml-2 opacity-75 hover:opacity-100 text-green-500" ></i>
          
          <i class="fa-sharp fa-solid fa-share-from-square  ml-2 opacity-75 hover:opacity-100"></i>
 
         
         
         </div>
+
+     
     </a>
    
 
@@ -60,11 +74,9 @@ $(document).on('click','.btn-like',function(e){
 
     })
 
+    window.location.href = 'http://127.0.0.1:8000/posts/feed'
+
 })
-
-
-
-
 
 </script>
 

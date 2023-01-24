@@ -6,3 +6,8 @@ input{
     width:100% ; 
     
 }
+
+.fa-heart.active{
+    color : red; 
+    background-color: red;
+}
