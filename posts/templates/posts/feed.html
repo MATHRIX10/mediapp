@@ -33,8 +33,10 @@
         </div>
 
          <div class="icons text-green-500 flex justify-center  mt-4 mb-4 ">
+
+        <a href="" id = "{{post.id}}" class = "btn-like"><i class="fa-solid fa-heart ml-2 opacity-75 hover:opacity-100"></i></a>
          <i class="fa-solid fa-comment-dots ml-2 opacity-75 hover:opacity-100"></i>
-         <i class="fa-solid fa-heart ml-2 opacity-75 hover:opacity-100"></i>
+         
          <i class="fa-sharp fa-solid fa-share-from-square  ml-2 opacity-75 hover:opacity-100"></i>
 
         
@@ -46,12 +48,27 @@
 {% endfor %}
  </div>
 
-  
+<script type='text/javascript'>
+window.CSRF_TOKEN = "{{ csrf_token }}"
+$(document).on('click','.btn-like',function(e){
+    e.preventDefault() 
+    var post_id = this.id 
+    $.ajax({
+        method : 'POST', 
+        url : '/posts/like', 
+        data : {post_id:post_id,csrfmiddlewaretoken:window.CSRF_TOKEN}
+
+    })
+
+})
+
+
+
+
+
+</script>
 
 
 {% endblock %}
 
 
-  <h1>{{post.title}}</h1>
-    <h2>{{post.user.username}}</h2>
-    <img src="{{post.image.url}}" alt="">
