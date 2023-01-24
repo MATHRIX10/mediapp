@@ -27,3 +27,10 @@ def post_create(request) :
         
 
     return render(request,'posts/create.html',{'form':form})
+
+
+def feed(request) : 
+    # get all the posts form all the users 
+    posts = Post.objects.all() 
+
+    return render(request,'posts/feed.html',{'posts':posts})
